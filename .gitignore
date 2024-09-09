@@ -1,0 +1,23 @@
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Compiled output
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# MacOS system files
+.DS_Store
