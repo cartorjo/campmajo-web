@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-import app from '../app';
+import app from '../app.js';
 import debug from 'debug';
 import http from 'http';
 
@@ -14,7 +14,7 @@ const debugLog = debug('campmajo-web:server');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env['PORT'] || '3000'); // Updated
 app.set('port', port);
 
 /**
