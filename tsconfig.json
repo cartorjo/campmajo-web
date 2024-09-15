@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext", // Updated to NodeNext
+    "module": "NodeNext",
     "moduleResolution": "nodenext",
     "outDir": "./dist",
     "rootDir": "./",
@@ -29,9 +29,9 @@
     "sourceMap": true,
     "inlineSources": true,
     "declaration": true,
-    "declarationMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "declarationMap": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
     "composite": true,
     "lib": ["ESNext", "DOM"],
     "downlevelIteration": true,
@@ -39,12 +39,13 @@
     "strictPropertyInitialization": true,
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
-    "allowJs": true,
-    "checkJs": true,
+    "allowJs": false,
+    "checkJs": false,
     "noImplicitOverride": true,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "typeRoots": ["./node_modules/@types"]  // Custom type roots
   },
   "include": ["app.ts", "bin/**/*.ts", "routes/**/*.ts", "views/**/*.ejs", "public/**/*.scss"],
-  "exclude": ["node_modules", "dist", "tests/**/*"],
+  "exclude": ["node_modules", "dist"],
   "compileOnSave": false
 }

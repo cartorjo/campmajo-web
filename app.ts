@@ -9,31 +9,6 @@ dotenv.config();
 
 const app = express();
 
-// Dynamically import helmet and express-rate-limit
-(async () => {
-  const helmetModule = await import('helmet');
-  const helmet = helmetModule.default;
-
-  const rateLimitModule = await import('express-rate-limit');
-  const rateLimit = rateLimitModule.default;
-
-  // Apply Helmet for security
-  app.use(helmet({
-    contentSecurityPolicy: false,
-    crossOriginEmbedderPolicy: true,
-    frameguard: { action: 'deny' },
-    hsts: { maxAge: 31536000, includeSubDomains: true },
-    noSniff: true
-  }));
-
-  // Rate limiting to prevent abuse
-  const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    limit: 100 // limit each IP to 100 requests per windowMs
-  });
-  app.use(limiter);
-})();
-
 // Use compression middleware to improve performance
 app.use(compression({
   threshold: 1024 // Only compress files over 1KB

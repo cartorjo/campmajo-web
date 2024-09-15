@@ -1,11 +1,149 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel='stylesheet' href='../stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"/>
+    <!-- Preload WebP images -->
+    <link rel="preload" href="/assets/pinocchio/pinocchio_01.webp" as="image" type="image/webp">
+    <link rel="preload" href="/assets/HG-AOVE-Arbequina-1024x1024-07_608x608.webp" as="image" type="image/webp">
+
+    <style>
+        .body {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+<!-- Navigation -->
+<nav class="flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold">Campmajó &amp; Studio</h1>
+    <button class="text-gray-500 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w- 8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</nav>
+
+<!-- Main Section -->
+<section class="p-0">
+    <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-lvh object-cover">
+</section>
+
+<!-- Main Section -->
+<section class="text-center p-4">
+    <div class="mt-4">
+        <h2 class="text-2xl font-semibold leading-tight">
+            Dissenyem experiències narratives audiovisuals cuidant amb detall cada aspecte del concepte gràfic.
+        </h2>
+        <p class="mt-2 text-lg leading-relaxed">
+            Per explicar una història, la forma és fons i el fons és forma.
+        </p>
+    </div>
+</section>
+
+<!-- Project Images Section -->
+<section class="p-0">
+    <!-- Grid with responsive columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
+             class="w-full">
+        <img src="/assets/sorolla/sorolla_01.jpg" alt="Project Image"
+             class="w-full" loading="lazy">
+        <img src="/assets/tot_es_fum/tot_es_fum_01.jpg" alt="Project Image"
+             class="w-full" loading="lazy">
+        <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
+             class="w-full">
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="p-4">
+    <!-- Heading with thin font weight and large size -->
+    <h1 class="text-3xl font-thin mb-8 text-left">Serveis</h1>
+
+    <!-- Services Grid: 2 Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-loose">
+        <div>
+            <!-- Bold first service -->
+            <p class="font-bold mb-2">Disseny d'experiències</p>
+            <p>Disseny videomapping</p>
+            <p>Instal·lacions interactives</p>
+            <p>Disseny d'entorns i escenografies</p>
+            <p>Disseny audiovisual</p>
+            <p>Recerca i desenvolupament</p>
+            <p>Consultoria</p>
+            <p>Museografia</p>
+            <p>Tradicional i phygital</p>
+        </div>
+        <div>
+            <!-- Bold first service -->
+            <p class="font-bold mb-2">Disseny i direcció d’art</p>
+            <p>Direcció artística</p>
+            <p>Animació gràfica</p>
+            <p>Il·lustració i disseny gràfic</p>
+            <p>Anàlisi i recerca fotogràfica</p>
+            <p>Storytelling</p>
+            <p>Investigació històrica</p>
+            <p>Documentació gràfica</p>
+            <p>Digitalització del patrimoni</p>
+        </div>
+    </div>
+</section>
+
+<section class="p-4">
+  <h2 class="mb-4 text-left font-bold text-2xl">
+    Som especialistes en l'art d'explicar històries.<br>
+    Amb dos ingredients claus: la senzillesa i l'efectivitat.
+  </h2>
+</section>
+
+<!-- Image Section -->
+<section class="p-0">
+    <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
+         class="w-full">
+</section>
+
+<!-- CTA Section -->
+<section class="p-4 text-centerç">
+    <h2 class="mb-4 text-left font-bold text-2xl">
+      Darrere la sensualitat, rigorositat.
+    </h2>
+    <div class="flex flex-col md:flex-row md:justify-start md:space-x-4">
+        <a href="#"
+           class="border border-black py-2 px-6 rounded-full w-full md:w-1/2 mb-4 md:mb-0 text-xl">projectes</a>
+        <a href="#"
+           class="border border-black py-2 px-6 rounded-full w-full md:w-1/2 text-xl">reel</a>
+    </div>
+</section>
+
+<!-- Image Section -->
+<section class="p-0">
+    <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
+         class="w-full">
+</section>
+
+<!-- Footer Section -->
+<footer class="p-2 md:p-2 lg:p-4 text-left">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-loose">
+        <div>
+            <p class="mb-2">
+                <strong>Campmajó &amp; Studio</strong><br>
+                +34 607 457 547<br>
+                barcelona@campmajo.studio</p>
+            <p class="mb-2">
+                08211 Castellar del Vallès<br>
+                Barcelona</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+
 </html>
