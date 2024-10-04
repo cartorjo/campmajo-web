@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Preconnect and DNS Prefetch for External Resources -->
+    <link rel="preconnect" href="//use.typekit.net">
+    <link rel="dns-prefetch" href="//use.typekit.net">
+    <link rel="preconnect" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- External Fonts and Tailwind CSS -->
+    <link href="//use.typekit.net/gig2fob.css" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css"/>
+
     <!-- Preload WebP images -->
     <link rel="preload" href="/assets/pinocchio/pinocchio_01.webp" as="image" type="image/webp">
-    <link rel="preload" href="/assets/HG-AOVE-Arbequina-1024x1024-07_608x608.webp" as="image" type="image/webp">
 
     <style>
-        .body {
-            font-family: "Montserrat", sans-serif;
+
+        body {
+            font-family: "proxima-nova", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Smooth Slide-in Transition for Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateX(100%); /* Offscreen initially */
+        }
+
+        /* Show Menu */
+        #mobile-menu.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Hide Menu */
+        #mobile-menu.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Disable Scroll when Mobile Menu is Open */
+        body.overflow-hidden {
+            overflow: hidden;
+        }
+
+        /* Spin effect for Menu Button */
+        #menu-toggle.open svg {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(90deg); /* Rotate the menu button */
+        }
+
+        /* Subtle Hover Effect for Menu Items */
+        #mobile-menu nav a {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Hide initially for slide-in animation */
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Show with animation */
+        .visible {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
@@ -24,20 +79,51 @@
 <!-- Navigation -->
 <nav class="flex justify-between items-center p-4">
     <h1 class="text-2xl font-bold">Campmajó &amp; Studio</h1>
-    <button class="text-gray-500 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w- 8 h-8">
+    <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
     </button>
 </nav>
 
-<!-- Main Section -->
-<section class="p-0">
-    <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-lvh object-cover">
+<!-- Overlay Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-center items-center">
+    <nav class="space-y-8 text-white text-3xl font-bold text-center">
+        <a href="#work" class="block hover:underline">Work</a>
+        <a href="#about" class="block hover:underline">About</a>
+        <a href="#contact" class="block hover:underline">Contact</a>
+        <a href="#ia" class="block hover:underline">IA</a>
+    </nav>
+    <div class="text-sm mt-12 text-white text-center">
+        <p>hola@campmajo.studio</p>
+        <p>607 457 547</p>
+    </div>
+    <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+</div>
+
+<!-- Main Section with responsive images -->
+<section class="p-0 fade-in">
+    <picture>
+        <!-- 4K Optimized version for large screens -->
+        <source media="(min-width: 1920px)" srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/jpeg">
+
+        <!-- Optimized WebP format for modern browsers -->
+        <source srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/webp">
+
+        <!-- Retina displays -->
+        <source media="(min-width: 768px)" srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/jpeg">
+
+        <!-- Default fallback image -->
+        <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-lvh object-cover max-h-96 md:max-h-full">
+    </picture>
 </section>
 
-<!-- Main Section -->
-<section class="text-center p-4">
+<!-- Text Section -->
+<section class="text-center p-4 fade-in">
     <div class="mt-4">
         <h2 class="text-2xl font-semibold leading-tight">
             Dissenyem experiències narratives audiovisuals cuidant amb detall cada aspecte del concepte gràfic.
@@ -48,30 +134,49 @@
     </div>
 </section>
 
-<!-- Project Images Section -->
-<section class="p-0">
-    <!-- Grid with responsive columns -->
+<!-- Project Images Section with responsive images -->
+<section class="p-0 fade-in">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
-             class="w-full">
-        <img src="/assets/sorolla/sorolla_01.jpg" alt="Project Image"
-             class="w-full" loading="lazy">
-        <img src="/assets/tot_es_fum/tot_es_fum_01.jpg" alt="Project Image"
-             class="w-full" loading="lazy">
-        <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
-             class="w-full">
+        <!-- Image 1: 4K, WebP, Retina, Original -->
+        <picture class="-mb-1">
+            <source media="(min-width: 1920px)" srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/png">
+            <source srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/png">
+            <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1" class="w-full md:max-h-56 lg:max-h-full">
+        </picture>
+
+        <!-- Image 2: 4K, WebP, Retina, Original -->
+        <picture>
+            <source media="(min-width: 1920px)" srcset="/assets/sorolla/sorolla_01.jpg" type="image/jpeg">
+            <source srcset="/assets/sorolla/sorolla_01.jpg" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/sorolla/sorolla_01.jpg" type="image/jpeg">
+            <img src="/assets/sorolla/sorolla_01.jpg" alt="Project Image" class="w-full md:max-h-56 lg:max-h-full" loading="lazy">
+        </picture>
+
+        <!-- Image 3: 4K, WebP, Retina, Original -->
+        <picture>
+            <source media="(min-width: 1920px)" srcset="/assets/tot_es_fum/tot_es_fum_01.jpg" type="image/jpeg">
+            <source srcset="/assets/tot_es_fum/tot_es_fum_01.jpg" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/tot_es_fum/tot_es_fum_01.jpg" type="image/jpeg">
+            <img src="/assets/tot_es_fum/tot_es_fum_01.jpg" alt="Project Image" class="w-full md:max-h-56 lg:max-h-full" loading="lazy">
+        </picture>
+
+        <!-- Image 4: Repeat for consistency -->
+        <picture>
+            <source media="(min-width: 1920px)" srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/png">
+            <source srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/webp">
+            <source media="(min-width: 768px)" srcset="/assets/ccc2024/capital_cultura_catalana_01.png" type="image/png">
+            <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1" class="w-full md:max-h-56 lg:max-h-full">
+        </picture>
     </div>
 </section>
 
 <!-- Services Section -->
-<section class="p-4">
-    <!-- Heading with thin font weight and large size -->
+<section class="p-4 fade-in">
     <h1 class="text-3xl font-thin mb-8 text-left">Serveis</h1>
 
-    <!-- Services Grid: 2 Columns -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-loose">
         <div>
-            <!-- Bold first service -->
             <p class="font-bold mb-2">Disseny d'experiències</p>
             <p>Disseny videomapping</p>
             <p>Instal·lacions interactives</p>
@@ -83,7 +188,6 @@
             <p>Tradicional i phygital</p>
         </div>
         <div>
-            <!-- Bold first service -->
             <p class="font-bold mb-2">Disseny i direcció d’art</p>
             <p>Direcció artística</p>
             <p>Animació gràfica</p>
@@ -97,40 +201,64 @@
     </div>
 </section>
 
-<section class="p-4">
-  <h2 class="mb-4 text-left font-bold text-2xl">
-    Som especialistes en l'art d'explicar històries.<br>
-    Amb dos ingredients claus: la senzillesa i l'efectivitat.
-  </h2>
-</section>
-
-<!-- Image Section -->
-<section class="p-0">
-    <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
-         class="w-full">
-</section>
-
-<!-- CTA Section -->
-<section class="p-4 text-centerç">
-    <h2 class="mb-4 text-left font-bold text-2xl">
-      Darrere la sensualitat, rigorositat.
-    </h2>
-    <div class="flex flex-col md:flex-row md:justify-start md:space-x-4">
-        <a href="#"
-           class="border border-black py-2 px-6 rounded-full w-full md:w-1/2 mb-4 md:mb-0 text-xl">projectes</a>
-        <a href="#"
-           class="border border-black py-2 px-6 rounded-full w-full md:w-1/2 text-xl">reel</a>
+<!-- Text Section -->
+<section class="text-center p-4 fade-in">
+    <div class="mt-4">
+        <h2 class="text-2xl font-semibold leading-tight">
+            Som especialistes en l’art d’explicar històries. Amb dos ingredients claus: la senzillesa i l’efectivitat.
+        </h2>
     </div>
 </section>
 
-<!-- Image Section -->
-<section class="p-0">
-    <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1"
-         class="w-full">
+<section class="p-0 fade-in">
+    <picture>
+        <!-- 4K Optimized version for large screens -->
+        <source media="(min-width: 1920px)" srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/jpeg">
+
+        <!-- Optimized WebP format for modern browsers -->
+        <source srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/webp">
+
+        <!-- Retina displays -->
+        <source media="(min-width: 768px)" srcset="/assets/pinocchio/pinocchio_01.jpg" type="image/jpeg">
+
+        <!-- Default fallback image -->
+        <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-lvh object-cover max-h-96 md:max-h-full">
+    </picture>
 </section>
 
+<!-- Text Section -->
+<section class="text-center p-4 fade-in">
+    <div class="mt-4">
+        <h2 class="text-2xl font-semibold leading-tight">
+            Darrere la sensualitat, rigorositat.
+        </h2>
+    </div>
+</section>
+
+<!-- Buttons Section -->
+<section class="buttons text-center my-8">
+    <button class="rounded-full px-6 py-2 mx-2 bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-200 transition">projectes</button>
+    <button class="rounded-full px-6 py-2 mx-2 bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-200 transition">reel</button>
+</section>
+
+<!-- Grid of Logos Section -->
+<section class="my-12 bg-black py-8">
+    <div class="logo-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
+        <img src="/assets/logo_loteries.png" alt="Loteries de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_fem.png" alt="Logo" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_sabadell.png" alt="Ajuntament de Sabadell" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_sanpau.png" alt="Hospital de la Santa Creu i Sant Pau" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_baqueira.png" alt="Baqueira Beret" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_malibu.png" alt="Ferrocarrils de la Generalitat de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_fgc.png" alt="Ferrocarrils de la Generalitat de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_jcyl.png" alt="Junta de Castilla y León" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+        <img src="/assets/logo_mas.png" alt="Ferrocarrils de la Generalitat de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto">
+    </div>
+</section>
+
+
 <!-- Footer Section -->
-<footer class="p-2 md:p-2 lg:p-4 text-left">
+<footer class="p-2 md:p-2 lg:p-4 text-left fade-in">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-loose">
         <div>
             <p class="mb-2">
@@ -144,6 +272,50 @@
     </div>
 </footer>
 
-</body>
+<!-- Mobile Menu Toggle Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
 
+        // Toggle menu and scrolling behavior
+        menuToggle.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('visible');
+            menuToggle.classList.toggle('open');
+            body.classList.toggle('overflow-hidden');  // Disable scrolling when menu is open
+        });
+
+        menuClose.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('visible');
+            menuToggle.classList.remove('open');
+            body.classList.remove('overflow-hidden');  // Enable scrolling when menu is closed
+        });
+
+        // Close menu on click outside
+        document.addEventListener('click', function (event) {
+            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target) && mobileMenu.classList.contains('visible')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('visible');
+                body.classList.remove('overflow-hidden');
+            }
+        });
+
+        // Fade-in effect on scroll
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        document.addEventListener('scroll', function () {
+            fadeInElements.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
 </html>
