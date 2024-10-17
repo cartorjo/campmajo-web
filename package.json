@@ -1,19 +1,17 @@
 {
   "name": "campmajo-web",
   "version": "0.0.0",
-  "engines": {
-    "node": "18.x"
-  },
   "private": true,
   "scripts": {
     "prebuild": "npm run clean && npm run update:deps",
-    "build": "npm run build:static && npm run build:ts && npm run copy:views",
+    "build": "npm run build:ts && npm run copy:views",
     "build:ts": "tsc",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf dist",
     "copy:views": "cp -R views dist/",
     "start": "node dist/bin/www.js",
     "ts:watch": "tsc --watch",
-    "update:deps": "npx npm-check-updates -u && npm install"
+    "update:deps": "npx npm-check-updates -u && npm install",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "compression": "^1.7.4",
