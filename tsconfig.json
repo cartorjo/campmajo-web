@@ -43,7 +43,8 @@
     "checkJs": false,
     "noImplicitOverride": true,
     "useDefineForClassFields": true,
-    "typeRoots": ["./node_modules/@types"]  // Custom type roots
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node", "compression", "express", "http-errors", "debug"]  // Explicitly include types
   },
   "include": ["app.ts", "bin/**/*.ts", "routes/**/*.ts", "views/**/*.ejs", "public/**/*.scss"],
   "exclude": ["node_modules", "dist"],
