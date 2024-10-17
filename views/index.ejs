@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campmajó & Studio</title>
+    <title>Campmajó Studio</title>
 
     <!-- Preconnect and DNS Prefetch for External Resources -->
     <link rel="preconnect" href="//use.typekit.net">
@@ -16,7 +16,7 @@
     <link href="//cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Preload WebP images -->
-    <link rel="preload" href="/assets/pinocchio/pinocchio_01.webp" as="image" type="image/webp">
+    <link rel="preload" href="/assets/pinocchio/pinocchio_03.webp" as="image" type="image/webp">
 
     <style>
         body {
@@ -81,6 +81,13 @@
         #navbar.inverted #menu-toggle svg {
             color: white;
         }
+
+        iframe {
+            width: 100vw;
+            height: 40vh;
+            max-width: 100%;
+        }
+
     </style>
 </head>
 
@@ -88,7 +95,7 @@
 
 <!-- Navigation -->
 <nav id="navbar" class="flex justify-between items-center p-4 bg-white text-black">
-    <h1 class="logo text-2xl z-50">Campmajó &amp; Studio</h1>
+    <h1 class="logo text-2xl z-50">Campmajó Studio</h1>
     <button id="menu-toggle" class="text-gray-500 focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -119,21 +126,29 @@
 
 <!-- Main Section with responsive images -->
 <section class="p-0 fade-in">
-    <picture>
-        <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-auto object-cover" loading="lazy">
-    </picture>
+
+    <iframe width="100vw"
+            src="//www.youtube-nocookie.com/embed/HKiSfgeh-7M?si=Kex-gx2gBsANS2bd&amp;controls=0&autoplay=1&rel=0"
+            title="Reel 2024"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+
 </section>
 
 <!-- Text Section -->
 <section class="text-center p-4 fade-in">
     <div class="m-4">
-        <h2 class="text-2xl font-semibold leading-tight">
-            Dissenyem experiències narratives audiovisuals cuidant amb detall cada aspecte del concepte gràfic.
-        </h2>
         <p class="mt-2 text-lg leading-relaxed">
-            Per explicar una història, la forma és fons<br>
-            i el fons és forma.
+            Llum i narrativa
         </p>
+
+        <h2 class="text-2xl font-semibold leading-tight">
+            Som un col·lectiu d'artistes i dissenyadors especialitzats en crear, dirigir i executar espectacles
+            audiovisuals, amb una atenció meticulosa al concepte gràfic i la narrativa, aconseguint així força i emoció
+            en els nostres projectes.
+        </h2>
+
     </div>
 </section>
 
@@ -142,31 +157,78 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <!-- Image 1 -->
         <picture class="-mb-1">
-            <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 1" class="w-full h-auto" loading="lazy">
+            <img src="/assets/ccc2024/capital_cultura_catalana_01.jpg" alt="Project Image 1" class="w-full h-auto"
+                 loading="lazy">
         </picture>
 
         <!-- Image 2 -->
         <picture>
-            <img src="/assets/sorolla/sorolla_01.jpg" alt="Project Image 2" class="w-full h-auto" loading="lazy">
+            <img src="/assets/pinocchio/pinocchio_00.jpg" alt="Project Image 2" class="w-full h-auto" loading="lazy">
         </picture>
 
         <!-- Image 3 -->
         <picture>
-            <img src="/assets/tot_es_fum/tot_es_fum_01.jpg" alt="Project Image 3" class="w-full h-auto" loading="lazy">
+            <img src="/assets/tot_es_fum/tot_es_fum_00.jpg" alt="Project Image 3" class="w-full h-auto" loading="lazy">
         </picture>
 
         <!-- Image 4 -->
         <picture>
-            <img src="/assets/ccc2024/capital_cultura_catalana_01.png" alt="Project Image 4" class="w-full h-auto" loading="lazy">
+            <img src="/assets/sorolla/sorolla_00.jpg" alt="" class="w-full h-auto" loading="lazy">
         </picture>
+
+        <!-- Image 5 -->
+        <picture>
+            <img src="/assets/duoleg/duoleg_00.jpg" alt="" class="w-full h-auto" loading="lazy">
+        </picture>
+
+        <!-- Image 6 -->
+        <picture>
+            <img src="/assets/nadal_immersiu/nadal_immersiu_00.jpg" alt="" class="w-full h-auto"
+                 loading="lazy">
+        </picture>
+
+        <!-- Image 7 -->
+        <picture>
+            <img src="/assets/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg" alt=""
+                 class="w-full h-auto" loading="lazy">
+        </picture>
+
+        <!-- Image 8 -->
+        <picture>
+            <img src="/assets/pell_de_paper/pell_de_paper_00.jpg" alt="" class="w-full h-auto"
+                 loading="lazy">
+        </picture>
+
+        <!-- Image 9 -->
+        <picture>
+            <img src="/assets/buen_camino/buen_camino_00.jpg" alt="" class="w-full h-auto"
+                 loading="lazy">
+        </picture>
+
+        <!-- Image 10 -->
+        <picture>
+            <img src="/assets/siguenza/catedral_siguenza_00.jpg" alt="" class="w-full h-auto" loading="lazy">
+        </picture>
+
+        <!-- Image 11 -->
+        <picture>
+            <img src="/assets/cels/cels_00.jpg" alt="" class="w-full h-auto" loading="lazy">
+        </picture>
+
+        <!-- Image 12 -->
+        <picture>
+            <img src="/assets/bosc_de_llum/bosc_de_llum_00.jpg" alt="" class="w-full h-auto"
+                 loading="lazy">
+        </picture>
+
     </div>
 </section>
 
 <!-- Services Section -->
-<section class="p-4 fade-in">
+<section class="p-12 fade-in">
     <h1 class="text-3xl font-thin mb-8 text-left">Serveis</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-loose">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg leading-loose">
         <div>
             <p class="font-bold mb-2">Disseny d'experiències</p>
             <ul>
@@ -174,10 +236,9 @@
                 <li>Instal·lacions interactives</li>
                 <li>Disseny d'entorns i escenografies</li>
                 <li>Disseny audiovisual</li>
-                <li>Recerca i desenvolupament</li>
                 <li>Consultoria</li>
                 <li>Museografia</li>
-                <li>Tradicional i phygital</li>
+                <li>Enginyeria</li>
             </ul>
         </div>
         <div>
@@ -190,68 +251,84 @@
                 <li>Storytelling</li>
                 <li>Investigació històrica</li>
                 <li>Documentació gràfica</li>
-                <li>Digitalització del patrimoni</li>
             </ul>
         </div>
-    </div>
-</section>
-
-<!-- Text Section -->
-<section class="text-center p-4 fade-in">
-    <div class="mt-4">
-        <h2 class="text-2xl font-semibold leading-tight">
-            Som especialistes en l’art d’explicar històries. Amb dos ingredients claus: la senzillesa i l’efectivitat.
-        </h2>
+        <div>
+            <p class="font-bold mb-2">I+D</p>
+            <ul>
+                <li>Intel-ligència artificial</li>
+                <li>Processing</li>
+                <li>Open Frameworks</li>
+                <li>Art generatiu</li>
+                <li>Multimèdia i nous mitjans</li>
+                <li>Digitalització 3D</li>
+                <li>Tradicional i phygital</li>
+            </ul>
+        </div>
     </div>
 </section>
 
 <!-- Main Image Section -->
 <section class="p-0 fade-in">
     <picture>
-        <img src="/assets/pinocchio/pinocchio_01.jpg" alt="Main visual" class="w-full h-auto object-cover" loading="lazy">
+        <img src="/assets/pinocchio/pinocchio_02.jpg" alt="Main visual" class="w-full h-auto object-cover"
+             loading="lazy">
     </picture>
 </section>
 
 <!-- Text Section -->
-<section class="text-center p-4 fade-in">
+<section class="text-center p-8 fade-in">
     <div class="mt-4">
         <h2 class="text-2xl font-semibold leading-tight">
             Darrere la sensualitat, rigorositat.
         </h2>
+        <p class="mt-2 text-lg leading-relaxed">
+            Per explicar una història, la forma és fons i el fons és forma. <br> El nostre procés de treball inclou
+            planificació, disseny, implementació, seguiment i millora continua per garantir l’exel.lència en cada
+            projecte. </p>
     </div>
-</section>
-
-<!-- Buttons Section -->
-<section class="buttons text-center my-8">
-    <button class="rounded-full px-6 py-2 mx-2 bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-200 transition">Projectes</button>
-    <button class="rounded-full px-6 py-2 mx-2 bg-white text-gray-900 font-semibold shadow-md hover:bg-gray-200 transition">Reel</button>
 </section>
 
 <!-- Grid of Logos Section -->
 <section class="my-12 bg-black py-8">
     <div class="logo-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
-        <img src="/assets/logo_loteries.png" alt="Loteries de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_loteries.png" alt="Loteries de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto"
+             loading="lazy">
         <img src="/assets/logo_fem.png" alt="FEM" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-        <img src="/assets/logo_sabadell.png" alt="Ajuntament de Sabadell" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-        <img src="/assets/logo_sanpau.png" alt="Hospital de la Santa Creu i Sant Pau" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-        <img src="/assets/logo_baqueira.png" alt="Baqueira Beret" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_sabadell.png" alt="Ajuntament de Sabadell"
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_sanpau.png" alt="Hospital de la Santa Creu i Sant Pau"
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_baqueira.png" alt="Baqueira Beret" class="max-w-full max-h-24 sm:max-h-32 mx-auto"
+             loading="lazy">
         <img src="/assets/logo_malibu.png" alt="Malibu" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-        <img src="/assets/logo_fgc.png" alt="Ferrocarrils de la Generalitat de Catalunya" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-        <img src="/assets/logo_jcyl.png" alt="Junta de Castilla y León" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_fgc.png" alt="Ferrocarrils de la Generalitat de Catalunya"
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_jcyl.png" alt="Junta de Castilla y León" class="max-w-full max-h-24 sm:max-h-32 mx-auto"
+             loading="lazy">
         <img src="/assets/logo_mas.png" alt="MAS" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+        <img src="/assets/logo_vanguardia.png" alt="La Vanguardia" class="max-w-full max-h-24 sm:max-h-32 mx-auto"
+             loading="lazy">
+        <img src="/assets/logo_provital.png" alt="Provital" class="max-w-full max-h-24 sm:max-h-32 mx-auto"
+             loading="lazy">
+        <img src="/assets/logo_coke.png" alt="CocaCola" class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
+
     </div>
 </section>
 
 <!-- Footer Section -->
 <footer class="p-2 md:p-2 lg:p-4 text-left fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg leading-relaxed">
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 text-lg leading-relaxed">
         <div>
-            <p class="m-40">
-                <strong>Campmajó &amp; Studio</strong><br>
+            <p class="m-20">
+                <strong>Campmajó Studio</strong><br>
+                Llum i narrativa
+                <br>
                 +34 607 457 547<br>
                 barcelona@campmajo.studio<br>
                 08211 Castellar del Vallès<br>
-                Barcelona
+                Barcelona<br>
+                © Campmajó Studio 2024
             </p>
         </div>
     </div>
@@ -303,6 +380,19 @@
                 }
             });
         });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+            const src = iframe.getAttribute('src');
+            if (src && !src.includes('autoplay=1')) {
+                const newSrc = src.includes('?') ? `${src}&autoplay=1` : `${src}?autoplay=1`;
+                iframe.setAttribute('src', newSrc);
+            }
+        }
     });
 </script>
 
