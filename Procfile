@@ -1,1 +1,1 @@
-web: node dist/bin/www.js
+web: npm run build && node dist/bin/www.js
