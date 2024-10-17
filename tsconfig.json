@@ -1,51 +1,39 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    // Latest ECMAScript for modern features
     "module": "NodeNext",
+    // Module system that works with Node.js ESM
     "moduleResolution": "nodenext",
+    // Node-style module resolution
     "outDir": "./dist",
+    // Output compiled files to dist
     "rootDir": "./",
+    // Source files are in the root folder
     "strict": true,
+    // Enable strict type-checking options
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    // For interoperability between CommonJS and ES modules
     "resolveJsonModule": true,
-    "useUnknownInCatchVariables": true,
-    "incremental": true,
-    "tsBuildInfoFile": "./dist/.tsbuildinfo",
-    "isolatedModules": true,
-    "noEmitOnError": true,
+    // Allow importing JSON modules
     "skipLibCheck": true,
+    // Skip type checking of declaration files
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    // Enforce consistent casing in imports
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "removeComments": true,
-    "sourceMap": true,
-    "inlineSources": true,
-    "declaration": true,
-    "declarationMap": false,
-    "emitDecoratorMetadata": false,
-    "experimentalDecorators": false,
-    "composite": true,
-    "lib": ["ESNext", "DOM"],
-    "downlevelIteration": true,
-    "exactOptionalPropertyTypes": true,
-    "strictPropertyInitialization": true,
-    "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "allowJs": false,
-    "checkJs": false,
-    "noImplicitOverride": true,
-    "useDefineForClassFields": true,
-    "typeRoots": ["./node_modules/@types"]  // Automatically include all types
+    // Ensure functions return something if expected
+    "noFallthroughCasesInSwitch": true
+    // Prevent fallthrough cases in switch statements
   },
-  "include": ["app.ts", "bin/**/*.ts", "routes/**/*.ts", "views/**/*.ejs", "public/**/*.scss"],
-  "exclude": ["node_modules", "dist"],
-  "compileOnSave": false
+  "include": [
+    "app.ts",
+    "bin/**/*.ts",
+    "routes/**/*.ts"
+  ],
+  // Only the necessary files for your app
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+  // Exclude output and dependency files
 }
