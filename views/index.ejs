@@ -11,13 +11,26 @@
     <link rel="preconnect" href="//cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
+    <!-- Preloading Critical Video Poster Image -->
+    <link rel="preload" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg" type="image/jpeg">
+
+    <!-- Prefetching All Other Images -->
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg" type="image/jpeg">
+
     <!-- External Fonts and Tailwind CSS -->
     <link href="//use.typekit.net/gig2fob.css" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-
-    <!-- Preload WebP images -->
-    <link rel="preload" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.webp"
-          as="image" type="image/webp">
 
     <style>
         body {
@@ -55,10 +68,6 @@
             transform: rotate(90deg);
         }
 
-        #mobile-menu nav a {
-            transition: transform 0.2s ease-in-out;
-        }
-
         .hidden {
             opacity: 0;
             visibility: hidden;
@@ -83,12 +92,6 @@
             color: white;
         }
 
-        iframe {
-            width: 100vw;
-            height: 40vh;
-            max-width: 100%;
-        }
-
     </style>
 </head>
 
@@ -106,16 +109,14 @@
 
 <!-- Overlay Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-center items-center">
-    <nav class="space-y-8 text-white text-3xl font-bold text-center">
-        <a href="#work" class="block hover:underline">Work</a>
-        <a href="#about" class="block hover:underline">About</a>
-        <a href="#contact" class="block hover:underline">Contact</a>
-        <a href="#ia" class="block hover:underline">IA</a>
-    </nav>
-    <div class="text-sm mt-12 text-white text-center">
-        <p>hola@campmajo.studio</p>
-        <p>607 457 547</p>
-    </div>
+    <section class="p-0 fade-in">
+        <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]" controls autoplay muted playsinline
+               preload="auto" loading="lazy"
+               poster="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg">
+            <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
     <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
@@ -125,16 +126,14 @@
     </button>
 </div>
 
-<!-- Main Section with responsive images -->
+<!-- Main Section with Responsive Video -->
 <section class="p-0 fade-in">
-
-    <iframe width="100vw"
-            src="//www.youtube-nocookie.com/embed/HKiSfgeh-7M?si=Kex-gx2gBsANS2bd&amp;controls=0&autoplay=1&rel=0"
-            title="Reel 2024"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-
+    <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]" controls autoplay muted playsinline
+           preload="auto" loading="lazy"
+           poster="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg">
+        <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </section>
 
 <!-- Text Section -->
@@ -342,10 +341,10 @@
 </section>
 
 <!-- Footer Section -->
-<footer class="p-2 md:p-2 lg:p-4 text-left fade-in">
+<footer class="p-12 text-left fade-in">
     <div class="grid grid-cols-1 md:grid-cols-1 gap-8 text-lg leading-relaxed">
         <div>
-            <p class="m-20">
+            <p class="mb-24">
                 <strong>Campmajó Studio</strong><br>
                 Llum i narrativa
                 <br>
@@ -359,8 +358,8 @@
     </div>
 </footer>
 
-<!-- Mobile Menu Toggle Script -->
-<script>
+<!-- JavaScript for delayed image loading and menu behavior -->
+<script defer>
     document.addEventListener('DOMContentLoaded', function () {
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
@@ -368,55 +367,72 @@
         const body = document.body;
         const navbar = document.getElementById('navbar');
 
-        // Toggle menu and scrolling behavior
-        menuToggle.addEventListener('click', function () {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('visible');
-            menuToggle.classList.toggle('open');
-            navbar.classList.toggle('inverted');  // Invert navbar colors
-            body.classList.toggle('overflow-hidden');  // Disable scrolling when menu is open
-        });
-
-        menuClose.addEventListener('click', function () {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('visible');
-            menuToggle.classList.remove('open');
-            navbar.classList.remove('inverted');  // Revert navbar colors
-            body.classList.remove('overflow-hidden');  // Enable scrolling when menu is closed
-        });
-
-        // Close menu on click outside
-        document.addEventListener('click', function (event) {
-            if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target) && mobileMenu.classList.contains('visible')) {
+        document.body.addEventListener('click', function (event) {
+            if (menuToggle.contains(event.target)) {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('visible');
+                menuToggle.classList.toggle('open');
+                navbar.classList.toggle('inverted');
+                body.classList.toggle('overflow-hidden');
+            } else if (menuClose.contains(event.target) || (!mobileMenu.contains(event.target) && mobileMenu.classList.contains('visible'))) {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('visible');
-                navbar.classList.remove('inverted');  // Revert navbar colors
+                menuToggle.classList.remove('open');
+                navbar.classList.remove('inverted');
                 body.classList.remove('overflow-hidden');
             }
         });
 
-        // Fade-in effect on scroll
-        const fadeInElements = document.querySelectorAll('.fade-in');
-        document.addEventListener('scroll', function () {
-            fadeInElements.forEach((element) => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    element.classList.add('visible');
+        const video = document.querySelector('video');
+        const images = document.querySelectorAll('img');
+
+        // Function to load images
+        const loadImages = () => {
+            images.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
                 }
             });
-        });
-    });
-</script>
+        };
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const iframe = document.querySelector('iframe');
-        if (iframe) {
-            const src = iframe.getAttribute('src');
-            if (src && !src.includes('autoplay=1')) {
-                const newSrc = src.includes('?') ? `${src}&autoplay=1` : `${src}?autoplay=1`;
-                iframe.setAttribute('src', newSrc);
+        // Function to set video volume to 30% and ensure it's unmuted
+        const setVideoVolume = () => {
+            if (video) {
+                try {
+                    video.volume = 0.5; // Set volume to 30%
+                    video.muted = false; // Ensure it's not muted
+                } catch (error) {
+                    console.warn("Unable to set video volume due to browser policies: ", error);
+                }
             }
+        };
+
+        // Function to check autoplay permissions and set volume accordingly
+        const checkAutoplayPermission = () => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setVideoVolume();
+                }).catch(error => {
+                    console.warn("Autoplay with sound might be blocked by the browser. Please interact with the video to enable sound.");
+                });
+            }
+        };
+
+        if (video) {
+            video.addEventListener('canplaythrough', loadImages);
+            video.addEventListener('loadeddata', setVideoVolume);
+            checkAutoplayPermission();
+
+            // Additional handler for user interaction to ensure video plays with sound
+            document.body.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play().then(setVideoVolume).catch(err => {
+                        console.warn("Autoplay restriction: Please manually unmute or play the video.", err);
+                    });
+                }
+            });
         }
     });
 </script>
