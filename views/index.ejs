@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,6 +92,36 @@
             color: white;
         }
 
+        .relative {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Hide overlay by default */
+            transition: opacity 0.3s ease;
+        }
+
+        .relative:hover .overlay {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        .description {
+            color: white;
+            font-size: 1rem; /* Adjust font size as needed */
+            text-align: center;
+            padding: 0.5rem; /* Add padding for better readability */
+        }
+
     </style>
 </head>
 
@@ -109,14 +139,6 @@
 
 <!-- Overlay Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-center items-center">
-    <section class="p-0 fade-in">
-        <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]" controls autoplay muted playsinline
-               preload="auto" loading="lazy"
-               poster="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg">
-            <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </section>
     <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
@@ -153,86 +175,128 @@
 </section>
 
 <!-- Project Images Section -->
+<!-- Project Images Section -->
 <section class="p-0 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"> <!-- Changed gap-4 to gap-0 -->
         <!-- Image 1 -->
-        <picture class="-mb-1">
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg"
-                 alt="Project Image 1" class="w-full h-auto"
-                 loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/3FFOKpRFUac?si=q7iQp5dksK-wuALi" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg" alt="Project Image 1" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 1 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 2 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg"
-                 alt="Project Image 2" class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" alt="Project Image 2" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 2 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 3 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg"
-                 alt="Project Image 3" class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/4fNPuff9BpE?si=5yy24SgMy8bmctMH" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" alt="Project Image 3" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 3 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 4 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" alt=""
-                 class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/Hu51gW7Y0IA?si=XcqSEe_FjVStjxJa" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" alt="Project Image 4" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 4 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 5 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" alt=""
-                 class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/VtnKPlUEiSg?si=0sPDZLS8ickc_sq1" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" alt="Project Image 5" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 5 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 6 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg" alt=""
-                 class="w-full h-auto"
-                 loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/NqCVUFdBWyI?si=e_pD1Wd9NflFxsaP" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg" alt="Project Image 6" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 6 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 7 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg"
-                 alt=""
-                 class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://www.youtube.com/watch?v=IZRzS5obv6E" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg" alt="Project Image 7" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 7 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 8 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg" alt=""
-                 class="w-full h-auto"
-                 loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg" alt="Project Image 8" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 8 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 9 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" alt=""
-                 class="w-full h-auto"
-                 loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" alt="Project Image 9" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 9 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 10 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg" alt=""
-                 class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="https://youtu.be/bPS8i24I1Pc?si=88zIMvepDlg3R3I7" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg" alt="Project Image 10" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 10 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 11 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" alt=""
-                 class="w-full h-auto" loading="lazy">
-        </picture>
+        <div class="relative">
+            <a href="/1" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" alt="Project Image 11" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 11 Description</p>
+                </div>
+            </a>
+        </div>
 
         <!-- Image 12 -->
-        <picture>
-            <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg" alt=""
-                 class="w-full h-auto"
-                 loading="lazy">
-        </picture>
-
+        <div class="relative">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg" alt="Project Image 12" class="w-full h-auto" loading="lazy">
+                <div class="overlay">
+                    <p class="description">Project Image 12 Description</p>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -342,7 +406,8 @@
 
 <!-- Footer Section -->
 <footer class="p-12 text-left fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-1 gap-8 text-lg leading-relaxed">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg leading-relaxed">
+        <!-- First Column -->
         <div>
             <p class="mb-24">
                 <strong>Campmajó Studio</strong><br>
@@ -352,55 +417,86 @@
                 barcelona@campmajo.studio<br>
                 08211 Castellar del Vallès<br>
                 Barcelona<br>
-                © Campmajó Studio 2024
             </p>
+        </div>
+        <div>
+            <p class="mb-24">
+                <a href="https://www.linkedin.com/in/lluiscampmajo/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
+                <a href="https://www.instagram.com/lluiscampmajo/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+                <a href="https://www.youtube.com/@campmajostudio" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </p>
+        </div>
+        <div>
+            <small>© Campmajó Studio 2024</small>
         </div>
     </div>
 </footer>
 
-<!-- JavaScript for delayed image loading and menu behavior -->
 <script defer>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
+        // Cache DOM elements
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
         const navbar = document.getElementById('navbar');
+        const body = document.body;
+        const video = document.querySelector('video');
 
-        document.body.addEventListener('click', function (event) {
+        // Optimize image overlays
+        const images = document.querySelectorAll('.relative');
+
+        images.forEach(image => {
+            const overlay = image.querySelector('.overlay');
+
+            // Add event listeners for hover effects
+            image.addEventListener('mouseenter', () => {
+                overlay.style.opacity = '1';
+            });
+
+            image.addEventListener('mouseleave', () => {
+                overlay.style.opacity = '0';
+            });
+        });
+
+        // Use event delegation for menu toggle
+        document.body.addEventListener('click', (event) => {
             if (menuToggle.contains(event.target)) {
-                mobileMenu.classList.toggle('hidden');
-                mobileMenu.classList.toggle('visible');
-                menuToggle.classList.toggle('open');
-                navbar.classList.toggle('inverted');
-                body.classList.toggle('overflow-hidden');
-            } else if (menuClose.contains(event.target) || (!mobileMenu.contains(event.target) && mobileMenu.classList.contains('visible'))) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('visible');
-                menuToggle.classList.remove('open');
-                navbar.classList.remove('inverted');
-                body.classList.remove('overflow-hidden');
+                toggleMobileMenu();
+            } else if (menuClose.contains(event.target) || (mobileMenu.classList.contains('visible') && !mobileMenu.contains(event.target))) {
+                closeMobileMenu();
             }
         });
 
-        const video = document.querySelector('video');
-        const images = document.querySelectorAll('img');
+        // Toggle mobile menu visibility
+        const toggleMobileMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('visible');
+            menuToggle.classList.toggle('open');
+            navbar.classList.toggle('inverted');
+            body.classList.toggle('overflow-hidden');
+        };
 
-        // Function to load images
+        const closeMobileMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('visible');
+            menuToggle.classList.remove('open');
+            navbar.classList.remove('inverted');
+            body.classList.remove('overflow-hidden');
+        };
+
+        // Functions for video loading and autoplay
         const loadImages = () => {
-            images.forEach(img => {
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                }
+            const imgs = document.querySelectorAll('img[data-src]');
+            imgs.forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
             });
         };
 
-        // Function to set video volume to 30% and ensure it's unmuted
         const setVideoVolume = () => {
             if (video) {
                 try {
-                    video.volume = 0.5; // Set volume to 30%
+                    video.volume = 0.5; // Set volume to 50%
                     video.muted = false; // Ensure it's not muted
                 } catch (error) {
                     console.warn("Unable to set video volume due to browser policies: ", error);
@@ -408,7 +504,6 @@
             }
         };
 
-        // Function to check autoplay permissions and set volume accordingly
         const checkAutoplayPermission = () => {
             const playPromise = video.play();
             if (playPromise !== undefined) {
@@ -425,7 +520,7 @@
             video.addEventListener('loadeddata', setVideoVolume);
             checkAutoplayPermission();
 
-            // Additional handler for user interaction to ensure video plays with sound
+            // User interaction handler for video
             document.body.addEventListener('click', () => {
                 if (video.paused) {
                     video.play().then(setVideoVolume).catch(err => {
