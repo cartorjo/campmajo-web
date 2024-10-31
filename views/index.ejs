@@ -12,21 +12,40 @@
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
     <!-- Preloading Critical Video Poster Image -->
-    <link rel="preload" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg" type="image/jpeg">
+    <link rel="preload" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_03.jpg" type="image/jpeg">
 
     <!-- Prefetching All Other Images -->
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg"
+          type="image/jpeg">
 
     <!-- External Fonts and Tailwind CSS -->
     <link href="//use.typekit.net/gig2fob.css" rel="stylesheet">
@@ -138,7 +157,8 @@
 </nav>
 
 <!-- Overlay Mobile Menu -->
-<div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-center items-center">
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-start items-center text-white">
+
     <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
@@ -146,14 +166,49 @@
                   d="M6 18L18 6M6 6l12 12"></path>
         </svg>
     </button>
+
+    <!-- Studio Section -->
+    <section class="p-4 fade-in w-full mt-16">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg">
+            <div>
+                <p class="font-bold mt-0 mb-4">Que fem?</p>
+                <p class="mb-4">
+                    Ajudem marques i empreses a ser més rellevants, transmetent els seus valors de manera humana i
+                    col·laborativa. Com a dissenyadors i artesans, transformem idees en instal·lacions digitals i
+                    espectacles audiovisuals, combinant concepte gràfic i narrativa per transmetre força i emoció.
+                </p>
+                <p class="mb-4">
+                    El 2014, Lluís i Eloisa van iniciar aquest camí amb més de 25 anys d'experiència, col·laborant amb
+                    marques, institucions i galeries de tot el món. El nostre estudi és obert a la col·laboració,
+                    treballant amb especialistes en arts, enginyeria, codi, música i literatura.
+                </p>
+                <p class="mb-4">
+                    Oferim consultoria per a la realització eficaç de projectes i treballem amb tècniques diverses, on
+                    la llum és la pintura i la foscor el llenç, en homenatge a Svoboda.
+                </p>
+            </div>
+
+            <div>
+                <p class="font-bold mt-0 mb-4">Contacte</p>
+                <p class="mb-4">
+                    <a href="mailto:lluis@campmajo.studio">lluis@campmajo.studio</a><br>
+                    <a href="tel:+34607457547">+34 607 457 547</a>
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
 
 <!-- Main Section with Responsive Video -->
 <section class="p-0 fade-in">
-    <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]" controls autoplay muted playsinline
-           preload="auto" loading="lazy"
-           poster="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg">
-        <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4" type="video/mp4">
+    <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]"
+           controls playsinline preload="auto" loading="lazy">
+        <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4"
+                type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </section>
@@ -175,125 +230,172 @@
 </section>
 
 <!-- Project Images Section -->
-<!-- Project Images Section -->
 <section class="p-0 fade-in">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"> <!-- Changed gap-4 to gap-0 -->
         <!-- Image 1 -->
         <div class="relative">
-            <a href="https://youtu.be/3FFOKpRFUac?si=q7iQp5dksK-wuALi" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg" alt="Project Image 1" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/3FFOKpRFUac" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg"
+                     alt="Capitalitat de la Cultura Catalana" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 1 Description</p>
+                    <p class="description">
+                        <strong>Capitalitat de la Cultura Catalana</strong><br>
+                        Espectacle inaugural
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 2 -->
         <div class="relative">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" alt="Project Image 2" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/wKQFjAPyd5g" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg"
+                     alt="Pinocchio" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 2 Description</p>
+                    <p class="description">
+                        <strong>Pinocchio</strong><br>
+                        Teatre videomapping
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 3 -->
         <div class="relative">
-            <a href="https://youtu.be/4fNPuff9BpE?si=5yy24SgMy8bmctMH" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" alt="Project Image 3" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/1S6j1bfracU" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg"
+                     alt="Tot és fum" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 3 Description</p>
+                    <p class="description">
+                        <strong>Tot és fum</strong><br>
+                        Instal-lació inmersiva videomapping
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 4 -->
         <div class="relative">
-            <a href="https://youtu.be/Hu51gW7Y0IA?si=XcqSEe_FjVStjxJa" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" alt="Project Image 4" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/Hu51gW7Y0IA" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg"
+                     alt="Sorolla - Óleos y olas" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 4 Description</p>
+                    <p class="description">
+                        <strong>Sorolla - Óleos y olas</strong><br>
+                        Instal-lació inmersiva video
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 5 -->
         <div class="relative">
-            <a href="https://youtu.be/VtnKPlUEiSg?si=0sPDZLS8ickc_sq1" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" alt="Project Image 5" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/M8ZjN5GFZmw" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg"
+                     alt="Duòleg" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 5 Description</p>
+                    <p class="description">
+                        <strong>Duòleg</strong><br>
+                        Instal-lació láser inmersiva
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 6 -->
         <div class="relative">
-            <a href="https://youtu.be/NqCVUFdBWyI?si=e_pD1Wd9NflFxsaP" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg" alt="Project Image 6" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/NqCVUFdBWyI" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg"
+                     alt="Un Nadal immersiu" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 6 Description</p>
+                    <p class="description">
+                        <strong>Un Nadal immersiu</strong><br>
+                        Instal-lacions inmersives
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 7 -->
         <div class="relative">
-            <a href="https://www.youtube.com/watch?v=IZRzS5obv6E" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg" alt="Project Image 7" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/IZRzS5obv6E" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg"
+                     alt="El cant dels ocellots" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 7 Description</p>
+                    <p class="description">
+                        <strong>El cant dels ocellots</strong><br>
+                        Videomapping
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 8 -->
         <div class="relative">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg" alt="Project Image 8" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/HhRcyP4bTSA" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg"
+                     alt="Pell de paper" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 8 Description</p>
+                    <p class="description">
+                        <strong>Pell de paper</strong><br>
+                        Espectacle inaugural videomapping
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 9 -->
         <div class="relative">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg" alt="Project Image 9" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/r-eBG2UT3lQ" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg"
+                     alt="Buen camino" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 9 Description</p>
+                    <p class="description">
+                        <strong>Buen camino</strong><br>
+                        Instal-lació láser inmersiva
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 10 -->
         <div class="relative">
-            <a href="https://youtu.be/bPS8i24I1Pc?si=88zIMvepDlg3R3I7" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg" alt="Project Image 10" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/bPS8i24I1Pc" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg"
+                     alt="Sigüenza" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 10 Description</p>
+                    <p class="description">
+                        <strong>Sigüenza</strong><br>
+                        Espectacle inaugural videomapping
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 11 -->
         <div class="relative">
-            <a href="/1" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" alt="Project Image 11" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/eYwiZRQU4Po" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg"
+                     alt="Cèls" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 11 Description</p>
+                    <p class="description">
+                        <strong>Cèls</strong><br>
+                        Espectacle inaugural Píxel led
+                    </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 12 -->
         <div class="relative">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg" alt="Project Image 12" class="w-full h-auto" loading="lazy">
+            <a href="https://youtu.be/5T0e7V0tVRs" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg"
+                     alt="Bosc de llum" class="w-full h-auto" loading="lazy">
                 <div class="overlay">
-                    <p class="description">Project Image 12 Description</p>
+                    <p class="description">
+                        <strong>Bosc de llum</strong><br>
+                        Instal-lació artística col-laborativa
+                    </p>
                 </div>
             </a>
         </div>
@@ -421,8 +523,10 @@
         </div>
         <div>
             <p class="mb-24">
-                <a href="https://www.linkedin.com/in/lluiscampmajo/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
-                <a href="https://www.instagram.com/lluiscampmajo/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+                <a href="https://www.linkedin.com/in/lluiscampmajo/" target="_blank"
+                   rel="noopener noreferrer">LinkedIn</a><br>
+                <a href="https://www.instagram.com/lluiscampmajo/" target="_blank"
+                   rel="noopener noreferrer">Instagram</a><br>
                 <a href="https://www.youtube.com/@campmajostudio" target="_blank" rel="noopener noreferrer">YouTube</a>
             </p>
         </div>
@@ -443,19 +547,10 @@
         const video = document.querySelector('video');
 
         // Optimize image overlays
-        const images = document.querySelectorAll('.relative');
-
-        images.forEach(image => {
+        document.querySelectorAll('.relative').forEach(image => {
             const overlay = image.querySelector('.overlay');
-
-            // Add event listeners for hover effects
-            image.addEventListener('mouseenter', () => {
-                overlay.style.opacity = '1';
-            });
-
-            image.addEventListener('mouseleave', () => {
-                overlay.style.opacity = '0';
-            });
+            image.addEventListener('mouseenter', () => overlay.style.opacity = '1');
+            image.addEventListener('mouseleave', () => overlay.style.opacity = '0');
         });
 
         // Use event delegation for menu toggle
@@ -484,49 +579,18 @@
             body.classList.remove('overflow-hidden');
         };
 
-        // Functions for video loading and autoplay
+        // Functions for video loading
         const loadImages = () => {
-            const imgs = document.querySelectorAll('img[data-src]');
-            imgs.forEach(img => {
+            document.querySelectorAll('img[data-src]').forEach(img => {
                 img.src = img.dataset.src;
                 img.removeAttribute('data-src');
             });
         };
 
-        const setVideoVolume = () => {
-            if (video) {
-                try {
-                    video.volume = 0.5; // Set volume to 50%
-                    video.muted = false; // Ensure it's not muted
-                } catch (error) {
-                    console.warn("Unable to set video volume due to browser policies: ", error);
-                }
-            }
-        };
-
-        const checkAutoplayPermission = () => {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    setVideoVolume();
-                }).catch(error => {
-                    console.warn("Autoplay with sound might be blocked by the browser. Please interact with the video to enable sound.");
-                });
-            }
-        };
-
         if (video) {
             video.addEventListener('canplaythrough', loadImages);
-            video.addEventListener('loadeddata', setVideoVolume);
-            checkAutoplayPermission();
-
-            // User interaction handler for video
-            document.body.addEventListener('click', () => {
-                if (video.paused) {
-                    video.play().then(setVideoVolume).catch(err => {
-                        console.warn("Autoplay restriction: Please manually unmute or play the video.", err);
-                    });
-                }
+            video.addEventListener('play', () => {
+                video.muted = false;
             });
         }
     });
