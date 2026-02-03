@@ -1,0 +1,83 @@
+// ==========================================================================
+// SPACING UTILITIES
+// Margin and padding classes
+// ==========================================================================
+
+@use 'sass:map';
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Spacing scale
+$space-scale: (
+  '0': 0,
+  '1': v.$spacing-1,
+  '2': v.$spacing-2,
+  '3': v.$spacing-3,
+  '4': v.$spacing-4,
+  '5': v.$spacing-5,
+  '6': v.$spacing-6,
+  '8': v.$spacing-8,
+  '10': v.$spacing-10,
+  '12': v.$spacing-12,
+  '16': v.$spacing-16,
+  '20': v.$spacing-20,
+  'auto': auto,
+);
+
+// Generate margin utilities
+@each $key, $value in $space-scale {
+  .m-#{$key} { margin: $value; }
+  .mt-#{$key} { margin-top: $value; }
+  .mr-#{$key} { margin-right: $value; }
+  .mb-#{$key} { margin-bottom: $value; }
+  .ml-#{$key} { margin-left: $value; }
+  .mx-#{$key} { margin-inline: $value; }
+  .my-#{$key} { margin-block: $value; }
+}
+
+// Generate padding utilities (except auto)
+@each $key, $value in $space-scale {
+  @if $key != 'auto' {
+    .p-#{$key} { padding: $value; }
+    .pt-#{$key} { padding-top: $value; }
+    .pr-#{$key} { padding-right: $value; }
+    .pb-#{$key} { padding-bottom: $value; }
+    .pl-#{$key} { padding-left: $value; }
+    .px-#{$key} { padding-inline: $value; }
+    .py-#{$key} { padding-block: $value; }
+  }
+}
+
+// Gap utilities
+@each $key, $value in $space-scale {
+  @if $key != 'auto' {
+    .gap-#{$key} { gap: $value; }
+    .gap-x-#{$key} { column-gap: $value; }
+    .gap-y-#{$key} { row-gap: $value; }
+  }
+}
+
+// Responsive spacing (md breakpoint)
+@include m.respond-to('md') {
+  @each $key, $value in $space-scale {
+    .md-m-#{$key} { margin: $value; }
+    .md-mx-#{$key} { margin-inline: $value; }
+    .md-my-#{$key} { margin-block: $value; }
+
+    @if $key != 'auto' {
+      .md-p-#{$key} { padding: $value; }
+      .md-px-#{$key} { padding-inline: $value; }
+      .md-py-#{$key} { padding-block: $value; }
+    }
+  }
+}
+
+// Negative margins
+@each $key, $value in $space-scale {
+  @if $key != '0' and $key != 'auto' {
+    .-mt-#{$key} { margin-top: calc(-1 * #{$value}); }
+    .-mr-#{$key} { margin-right: calc(-1 * #{$value}); }
+    .-mb-#{$key} { margin-bottom: calc(-1 * #{$value}); }
+    .-ml-#{$key} { margin-left: calc(-1 * #{$value}); }
+  }
+}

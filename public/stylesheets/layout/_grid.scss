@@ -1,0 +1,249 @@
+// ==========================================================================
+// GRID SYSTEM
+// Flexbox and CSS Grid utilities
+// ==========================================================================
+
+@use 'sass:math';
+@use '../abstracts' as *;
+
+// CSS Grid container
+.grid {
+  display: grid;
+  gap: $spacing-4;
+
+  @include respond-to('md') {
+    gap: $spacing-6;
+  }
+}
+
+// Column configurations
+.grid--2 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid--3 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid--4 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.grid--6 {
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+// Auto-fit grid
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.grid--auto-sm {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+.grid--auto-lg {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+}
+
+// Gap variants
+.grid--gap-sm {
+  gap: $spacing-2;
+
+  @include respond-to('md') {
+    gap: $spacing-3;
+  }
+}
+
+.grid--gap-lg {
+  gap: $spacing-6;
+
+  @include respond-to('md') {
+    gap: $spacing-8;
+  }
+}
+
+.grid--gap-xl {
+  gap: $spacing-8;
+
+  @include respond-to('md') {
+    gap: $spacing-12;
+  }
+}
+
+// Flexbox row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc(-1 * $spacing-2);
+
+  @include respond-to('md') {
+    margin-inline: calc(-1 * $spacing-3);
+  }
+}
+
+.row--no-wrap { flex-wrap: nowrap; }
+.row--center { justify-content: center; }
+.row--between { justify-content: space-between; }
+.row--end { justify-content: flex-end; }
+.row--align-center { align-items: center; }
+.row--align-end { align-items: flex-end; }
+.row--align-stretch { align-items: stretch; }
+
+// Columns
+.col {
+  flex: 1 1 0%;
+  padding-inline: $spacing-2;
+
+  @include respond-to('md') {
+    padding-inline: $spacing-3;
+  }
+}
+
+.col--auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.col--full {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+// Column sizes (12-column grid)
+@for $i from 1 through 12 {
+  .col--#{$i} {
+    flex: 0 0 math.percentage(math.div($i, 12));
+    max-width: math.percentage(math.div($i, 12));
+  }
+}
+
+// Responsive columns
+.col--sm-6 {
+  @include respond-to('sm') {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.col--sm-4 {
+  @include respond-to('sm') {
+    flex: 0 0 math.percentage(math.div(4, 12));
+    max-width: math.percentage(math.div(4, 12));
+  }
+}
+
+.col--md-6 {
+  @include respond-to('md') {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.col--md-4 {
+  @include respond-to('md') {
+    flex: 0 0 math.percentage(math.div(4, 12));
+    max-width: math.percentage(math.div(4, 12));
+  }
+}
+
+.col--md-3 {
+  @include respond-to('md') {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+.col--lg-6 {
+  @include respond-to('lg') {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.col--lg-4 {
+  @include respond-to('lg') {
+    flex: 0 0 math.percentage(math.div(4, 12));
+    max-width: math.percentage(math.div(4, 12));
+  }
+}
+
+.col--lg-3 {
+  @include respond-to('lg') {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+// Flex utilities
+.flex { display: flex; }
+.flex--inline { display: inline-flex; }
+.flex--column { flex-direction: column; }
+.flex--wrap { flex-wrap: wrap; }
+.flex--center { @include flex-center; }
+.flex--between { @include flex-between; }
+.flex--start { justify-content: flex-start; }
+.flex--end { justify-content: flex-end; }
+.flex--align-start { align-items: flex-start; }
+.flex--align-end { align-items: flex-end; }
+.flex--gap-sm { gap: $spacing-2; }
+.flex--gap { gap: $spacing-4; }
+.flex--gap-lg { gap: $spacing-6; }
+
+// Flex item utilities
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-none { flex: none; }
+.flex-grow { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+// Stack (vertical flex)
+.stack {
+  @include flex-column;
+  gap: $spacing-4;
+
+  &--sm { gap: $spacing-2; }
+  &--lg { gap: $spacing-6; }
+  &--xl { gap: $spacing-8; }
+}
+
+// Cluster (horizontal flex with wrap)
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-3;
+  align-items: center;
+
+  &--start { justify-content: flex-start; }
+  &--center { justify-content: center; }
+  &--end { justify-content: flex-end; }
+  &--between { justify-content: space-between; }
+}

@@ -1,0 +1,204 @@
+// ==========================================================================
+// BASE STYLES
+// Global foundational styles
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// Document
+html {
+  font-size: 100%;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: $color-secondary;
+  color: $color-primary;
+
+  &.overflow-hidden,
+  &.no-scroll,
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+// Main content
+main {
+  flex: 1 0 auto;
+}
+
+// Container
+.container {
+  @include container;
+
+  &--sm { max-width: 640px; }
+  &--md { max-width: 768px; }
+  &--lg { max-width: 1024px; }
+  &--xl { max-width: 1280px; }
+  &--full { max-width: 100%; padding-inline: 0; }
+}
+
+// Section spacing
+.section {
+  padding-block: $spacing-12;
+
+  @include respond-to('md') {
+    padding-block: $spacing-16;
+  }
+
+  @include respond-to('lg') {
+    padding-block: $spacing-20;
+  }
+
+  &--sm {
+    padding-block: $spacing-8;
+
+    @include respond-to('md') {
+      padding-block: $spacing-10;
+    }
+  }
+
+  &--lg {
+    padding-block: $spacing-16;
+
+    @include respond-to('md') {
+      padding-block: $spacing-20;
+    }
+
+    @include respond-to('lg') {
+      padding-block: $spacing-24;
+    }
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: $spacing-2;
+  font-size: $font-size-sm;
+  color: $color-gray-500;
+  text-align: center;
+}
+
+// Relative container for overlays
+.relative {
+  position: relative;
+  overflow: hidden;
+
+  .overlay {
+    @include overlay;
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+}
+
+// Overlay
+.overlay {
+  @include absolute-cover;
+  background-color: $color-overlay;
+  @include flex-center;
+  opacity: 0;
+  transition: $transition-opacity;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.overlay__content,
+.description {
+  color: $color-secondary;
+  font-size: $font-size-base;
+  text-align: center;
+  padding: $spacing-2;
+}
+
+// Page wrapper (for sticky footer)
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+// Logo
+.logo {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  color: inherit;
+  text-decoration: none;
+  transition: $transition-colors;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Visibility utilities
+.hidden {
+  @include hidden;
+}
+
+.visible {
+  @include visible;
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// Print styles
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}

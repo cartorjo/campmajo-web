@@ -1,0 +1,239 @@
+// ==========================================================================
+// FOOTER
+// Site footer styles
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// Footer base
+.footer {
+  background-color: $color-gray-900;
+  color: $color-secondary;
+  padding-block: $spacing-12;
+
+  @include respond-to('md') {
+    padding-block: $spacing-16;
+  }
+}
+
+.footer__inner {
+  @include container;
+}
+
+// Footer grid
+.footer__grid {
+  display: grid;
+  gap: $spacing-8;
+  grid-template-columns: 1fr;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: $spacing-12;
+  }
+}
+
+// Footer sections
+.footer__brand {
+  @include respond-to('lg') {
+    max-width: 300px;
+  }
+
+  .logo {
+    color: $color-secondary;
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-4;
+  }
+}
+
+.footer__description {
+  color: $color-gray-400;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-6;
+}
+
+.footer__title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-secondary;
+  margin-bottom: $spacing-4;
+}
+
+// Footer navigation
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+}
+
+.footer__link {
+  color: $color-gray-400;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  transition: $transition-colors;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+// Social links
+.footer__social {
+  display: flex;
+  gap: $spacing-3;
+}
+
+.footer__social-link {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-full;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $color-secondary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Footer bottom
+.footer__bottom {
+  margin-top: $spacing-12;
+  padding-top: $spacing-6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer__copyright {
+  color: $color-gray-500;
+  font-size: $font-size-sm;
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-4;
+
+  a {
+    color: $color-gray-500;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition: $transition-colors;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
+
+// Newsletter
+.footer__newsletter {
+  margin-top: $spacing-6;
+
+  @include respond-to('lg') {
+    margin-top: 0;
+  }
+}
+
+.footer__newsletter-form {
+  display: flex;
+  gap: $spacing-2;
+  max-width: 400px;
+}
+
+.footer__newsletter-input {
+  flex: 1;
+  padding: $spacing-3 $spacing-4;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: $border-radius-md;
+  color: $color-secondary;
+  font-size: $font-size-sm;
+
+  &::placeholder {
+    color: $color-gray-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+  }
+}
+
+// Light footer
+.footer--light {
+  background-color: $color-gray-100;
+  color: $color-primary;
+
+  .footer__title {
+    color: $color-primary;
+  }
+
+  .footer__link,
+  .footer__description {
+    color: $color-gray-600;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .footer__social-link {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: $color-primary;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .footer__bottom {
+    border-top-color: $color-gray-300;
+  }
+
+  .footer__copyright,
+  .footer__legal a {
+    color: $color-gray-500;
+  }
+}
+
+// Minimal footer
+.footer--minimal {
+  padding-block: $spacing-6;
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    align-items: center;
+    text-align: center;
+
+    @include respond-to('md') {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+}

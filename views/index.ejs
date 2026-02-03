@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,10 +31,10 @@
           href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg" type="image/jpeg">
     <link rel="prefetch" as="image"
           href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg" type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg"
-          type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg"
-          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg" type="image/jpeg">
     <link rel="prefetch" as="image"
           href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg"
           type="image/jpeg">
@@ -49,15 +49,29 @@
     <link rel="prefetch" as="image"
           href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg"
           type="image/jpeg">
-    <link rel="prefetch" as="image" href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg"
-          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg" type="image/jpeg">
     <link rel="prefetch" as="image"
           href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/mare_de_deu_gotica/mare-de-deu.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/elysia/elysia.jpg" type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/anita_figueras/anita_figueras.jpg"
+          type="image/jpeg">
+    <link rel="prefetch" as="image"
+          href="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell-de-paper.jpg"
           type="image/jpeg">
 
     <!-- External Fonts and Tailwind CSS -->
     <link href="//use.typekit.net/gig2fob.css" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
 
     <style>
         body {
@@ -95,16 +109,6 @@
             transform: rotate(90deg);
         }
 
-        .hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
         /* Invert navbar colors when mobile menu is active */
         #navbar.inverted {
             background-color: black;
@@ -119,36 +123,56 @@
             color: white;
         }
 
-        .relative {
+        /* Project grid items */
+        .project-item {
             position: relative;
             overflow: hidden;
+            background-color: #000;
+            line-height: 0;
         }
 
-        .overlay {
+        .project-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .project-item .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0; /* Hide overlay by default */
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        .relative:hover .overlay {
-            opacity: 1; /* Show overlay on hover */
+        .project-item:hover .overlay {
+            opacity: 1;
         }
 
         .description {
             color: white;
-            font-size: 1rem; /* Adjust font size as needed */
+            font-size: 1rem;
             text-align: center;
-            padding: 0.5rem; /* Add padding for better readability */
+            padding: 0.5rem;
+            line-height: 1.5;
         }
 
+        /* Video container */
+        .video-container {
+            line-height: 0;
+            background-color: #000;
+        }
+
+        .video-container video {
+            display: block;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -156,7 +180,7 @@
 <!-- Navigation -->
 <nav id="navbar" class="flex justify-between items-center p-4 bg-white text-black">
     <h1 class="logo text-2xl z-50">Campmajó Studio</h1>
-    <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+    <button id="menu-toggle" class="text-gray-500 focus:outline-none" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -165,31 +189,31 @@
 
 <!-- Overlay Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-0 z-40 bg-black hidden flex flex-col justify-start items-center text-white">
-
-    <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-             xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"></path>
+    <button id="menu-close" class="absolute top-4 right-4 text-white focus:outline-none" aria-label="Close menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
     </button>
 
     <!-- Studio Section -->
-    <section class="p-4 fade-in w-full mt-16">
-
+    <section class="p-4 w-full mt-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg">
             <div>
                 <p class="mb-4">
-                    Founded in 2014 by Lluís and Eloïsa —who bring together over 25 years of established expertise— Campmajó Studio transforms values into high-impact digital installations. We collaborate with international brands, institutions, and galleries to ensure that every project is not just seen, but felt.
+                    Founded in 2014 by Lluís and Eloïsa —who bring together over 25 years of established expertise—
+                    Campmajó Studio transforms values into high-impact digital installations. We collaborate with
+                    international brands, institutions, and galleries to ensure that every project is not just seen, but
+                    felt.
                 </p>
                 <p class="mb-4">
-                    We believe in a collaborative ecosystem where arts, engineering, code, music, and literature converge. This allows us to provide strategic consultancy and technical mastery in every execution.
+                    We believe in a collaborative ecosystem where arts, engineering, code, music, and literature
+                    converge. This allows us to provide strategic consultancy and technical mastery in every execution.
                 </p>
                 <p class="mb-4">
-                    In homage to the legacy of Josef Svoboda, we treat light as a living material. We merge audiovisual narrative and graphic design to transform physical spaces into emotional stories.
+                    In homage to the legacy of Josef Svoboda, we treat light as a living material. We merge audiovisual
+                    narrative and graphic design to transform physical spaces into emotional stories.
                 </p>
             </div>
-
             <div>
                 <p class="font-bold mt-0 mb-4">Contacte</p>
                 <p class="mb-4">
@@ -197,45 +221,41 @@
                     <a href="tel:+34607457547">+34 607 457 547</a>
                 </p>
             </div>
-
         </div>
-
     </section>
-
 </div>
 
 <!-- Main Section with Responsive Video -->
-<section class="p-0 fade-in">
-    <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh]"
-           autoplay muted loop playsinline preload="auto" loading="lazy">
-        <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4"
-                type="video/mp4">
+<section class="video-container">
+    <video class="w-full h-[30vh] md:h-[40vh] lg:h-[50vh] xl:h-[60vh] object-cover"
+           autoplay muted loop playsinline preload="auto">
+        <source src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/reel-web.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </section>
 
 <!-- Text Section -->
-<section class="text-center p-4 fade-in">
+<section class="text-center p-4">
     <div class="m-4">
         <p class="mt-2 text-lg leading-relaxed">
             Light and Storytelling
         </p>
-
         <h2 class="text-2xl font-semibold leading-tight">
-            We turn spaces into stories. We design and produce high-end immersive installations where technology meets narrative and poetry. We don’t just create visuals; we build experiences designed not to be seen, but to be felt. 
+            We turn spaces into stories. We design and produce high-end immersive installations where technology meets
+            narrative and poetry. We don't just create visuals; we build experiences designed not to be seen, but to be
+            felt.
         </h2>
-
     </div>
 </section>
 
 <!-- Project Images Section -->
-<section class="p-0 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"> <!-- Changed gap-4 to gap-0 -->
+<section class="p-0">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
         <!-- Image 1 -->
-        <div class="relative">
-            <a href="https://youtu.be/3FFOKpRFUac" target="_blank" rel="noopener noreferrer">
+        <div class="project-item">
+            <a href="https://youtu.be/rXo0_luLU3M" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/ccc2024/capital_cultura_catalana_01.jpg"
-                     alt="Capitalitat de la Cultura Catalana" class="w-full h-auto" loading="lazy">
+                     alt="Capitalitat de la Cultura Catalana" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Capitalitat de la Cultura Catalana</strong><br>
@@ -246,10 +266,10 @@
         </div>
 
         <!-- Image 2 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/wKQFjAPyd5g" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_00.jpg"
-                     alt="Pinocchio" class="w-full h-auto" loading="lazy">
+                     alt="Pinocchio" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Pinocchio</strong><br>
@@ -260,66 +280,67 @@
         </div>
 
         <!-- Image 3 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/1S6j1bfracU" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/tot_es_fum/tot_es_fum_00.jpg"
-                     alt="Tot és fum" class="w-full h-auto" loading="lazy">
+                     alt="Tot és fum" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Tot és fum</strong><br>
-                        Instal-lació inmersiva videomapping
+                        Instal·lació immersiva videomapping
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 4 -->
-        <div class="relative">
-            <a href="https://youtu.be/Hu51gW7Y0IA" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg"
-                     alt="Sorolla - Óleos y olas" class="w-full h-auto" loading="lazy">
+        <div class="project-item">
+            <a href="https://docs.google.com/presentation/d/1IoYUAfERJZMEtvIHyIOZfblOu3Bc9zImbUKmW1hQ1PY/present"
+               target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/elysia/elysia.jpg"
+                     alt="ELYSIA" loading="lazy">
                 <div class="overlay">
                     <p class="description">
-                        <strong>Sorolla - Óleos y olas</strong><br>
-                        Instal-lació inmersiva video
+                        <strong>ELYSIA</strong><br>
+                        Immersive experience
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 5 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/M8ZjN5GFZmw" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/duoleg/duoleg_00.jpg"
-                     alt="Duòleg" class="w-full h-auto" loading="lazy">
+                     alt="Duòleg" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Duòleg</strong><br>
-                        Instal-lació láser inmersiva
+                        Instal·lació làser immersiva
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 6 -->
-        <div class="relative">
-            <a href="https://youtu.be/NqCVUFdBWyI" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/nadal_immersiu/nadal_immersiu_00.jpg"
-                     alt="Un Nadal immersiu" class="w-full h-auto" loading="lazy">
+        <div class="project-item">
+            <a href="https://youtu.be/lrgIrG1NEBQ" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/mare_de_deu_gotica/mare-de-deu.jpg"
+                     alt="Mare de Déu gòtica" loading="lazy">
                 <div class="overlay">
                     <p class="description">
-                        <strong>Un Nadal immersiu</strong><br>
-                        Instal-lacions inmersives
+                        <strong>Mare de Déu gòtica</strong><br>
+                        Opening show
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 7 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/IZRzS5obv6E" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cant_dels_ocellots/el_cant_dels_ocellots_00.jpg"
-                     alt="El cant dels ocellots" class="w-full h-auto" loading="lazy">
+                     alt="El cant dels ocellots" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>El cant dels ocellots</strong><br>
@@ -330,10 +351,10 @@
         </div>
 
         <!-- Image 8 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/HhRcyP4bTSA" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell_de_paper_00.jpg"
-                     alt="Pell de paper" class="w-full h-auto" loading="lazy">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pell_de_paper/pell-de-paper.jpg"
+                     alt="Pell de paper" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Pell de paper</strong><br>
@@ -344,24 +365,24 @@
         </div>
 
         <!-- Image 9 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/r-eBG2UT3lQ" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/buen_camino/buen_camino_00.jpg"
-                     alt="Buen camino" class="w-full h-auto" loading="lazy">
+                     alt="Buen camino" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Buen camino</strong><br>
-                        Instal-lació láser inmersiva
+                        Instal·lació làser immersiva
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 10 -->
-        <div class="relative">
+        <div class="project-item">
             <a href="https://youtu.be/bPS8i24I1Pc" target="_blank" rel="noopener noreferrer">
                 <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/siguenza/catedral_siguenza_00.jpg"
-                     alt="Sigüenza" class="w-full h-auto" loading="lazy">
+                     alt="Sigüenza" loading="lazy">
                 <div class="overlay">
                     <p class="description">
                         <strong>Sigüenza</strong><br>
@@ -372,28 +393,28 @@
         </div>
 
         <!-- Image 11 -->
-        <div class="relative">
-            <a href="https://youtu.be/eYwiZRQU4Po" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/cels/cels_00.jpg"
-                     alt="Cèls" class="w-full h-auto" loading="lazy">
+        <div class="project-item">
+            <a href="https://youtu.be/Hu51gW7Y0IA" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/sorolla/sorolla_00.jpg"
+                     alt="Sorolla - Óleos y olas" loading="lazy">
                 <div class="overlay">
                     <p class="description">
-                        <strong>Cèls</strong><br>
-                        Espectacle inaugural Píxel led
+                        <strong>Sorolla - Óleos y olas</strong><br>
+                        Instal·lació immersiva video
                     </p>
                 </div>
             </a>
         </div>
 
         <!-- Image 12 -->
-        <div class="relative">
-            <a href="https://youtu.be/5T0e7V0tVRs" target="_blank" rel="noopener noreferrer">
-                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/bosc_de_llum/bosc_de_llum_00.jpg"
-                     alt="Bosc de llum" class="w-full h-auto" loading="lazy">
+        <div class="project-item">
+            <a href="https://youtu.be/gcU8z5Z1lhA" target="_blank" rel="noopener noreferrer">
+                <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/anita_figueras/anita_figueras.jpg"
+                     alt="Anita Figueras" loading="lazy">
                 <div class="overlay">
                     <p class="description">
-                        <strong>Bosc de llum</strong><br>
-                        Instal-lació artística col-laborativa
+                        <strong>Anita Figueras</strong><br>
+                        Opening show
                     </p>
                 </div>
             </a>
@@ -402,8 +423,7 @@
 </section>
 
 <!-- Services Section -->
-<section class="p-12 fade-in">
-
+<section class="p-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg leading-loose">
         <div>
             <p class="font-bold mb-2">Spatial & Experience Design</p>
@@ -433,21 +453,23 @@
 </section>
 
 <!-- Main Image Section -->
-<section class="p-0 fade-in">
-    <picture>
-        <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_02.jpg" alt="Main visual"
-             class="w-full h-auto object-cover"
-             loading="lazy">
-    </picture>
+<section class="p-0" style="line-height: 0;">
+    <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/pinocchio/pinocchio_02.jpg"
+         alt="Main visual"
+         class="block w-full h-auto object-cover"
+         loading="lazy">
 </section>
 
 <!-- Text Section -->
-<section class="text-center p-8 fade-in">
+<section class="text-center p-8">
     <div class="mt-4">
         <h2 class="text-2xl font-semibold leading-tight">
             Light has memory
         </h2>
-        <p class="mt-2 text-lg leading-relaxed">We merge audiovisual mastery with deep storytelling. From museums to global brands, we bridge the gap between art and technology, creating experiences designed to vanish from the space but endure in the memory.</p>
+        <p class="mt-2 text-lg leading-relaxed">
+            We merge audiovisual mastery with deep storytelling. From museums to global brands, we bridge the gap
+            between art and technology, creating experiences designed to vanish from the space but endure in the memory.
+        </p>
     </div>
 </section>
 
@@ -455,8 +477,7 @@
 <section class="my-12 bg-black py-8">
     <div class="logo-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_loteries.png" alt="Loteries de Catalunya"
-             class="max-w-full max-h-24 sm:max-h-32 mx-auto"
-             loading="lazy">
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_fem.png" alt="FEM"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_sabadell.png" alt="Ajuntament de Sabadell"
@@ -465,39 +486,32 @@
              alt="Hospital de la Santa Creu i Sant Pau"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_baqueira.png" alt="Baqueira Beret"
-             class="max-w-full max-h-24 sm:max-h-32 mx-auto"
-             loading="lazy">
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_malibu.png" alt="Malibu"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_fgc.png"
              alt="Ferrocarrils de la Generalitat de Catalunya"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_jcyl.png" alt="Junta de Castilla y León"
-             class="max-w-full max-h-24 sm:max-h-32 mx-auto"
-             loading="lazy">
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_mas.png" alt="MAS"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_vanguardia.png" alt="La Vanguardia"
-             class="max-w-full max-h-24 sm:max-h-32 mx-auto"
-             loading="lazy">
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_provital.png" alt="Provital"
-             class="max-w-full max-h-24 sm:max-h-32 mx-auto"
-             loading="lazy">
+             class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
         <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_coke.png" alt="CocaCola"
              class="max-w-full max-h-24 sm:max-h-32 mx-auto" loading="lazy">
-
     </div>
 </section>
 
 <!-- Footer Section -->
-<footer class="p-12 text-left fade-in">
+<footer class="p-12 text-left">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg leading-relaxed">
-        <!-- First Column -->
         <div>
             <p class="mb-24">
                 <strong>Campmajó Studio</strong><br>
-                Llum i narrativa
-                <br>
+                Llum i narrativa<br>
                 +34 607 457 547<br>
                 barcelona@campmajo.studio<br>
                 Barcelona
@@ -517,11 +531,9 @@
         </div>
         <div>
             <img src="https://campmajo-studio.s3.eu-central-1.amazonaws.com/logo_cdmon.jpg" alt="cdmon logo"
-                 class="max-w-full max-h-24 sm:max-h-32 mx-auto float-left"
-                 loading="lazy">
+                 class="max-w-full max-h-24 sm:max-h-32 mx-auto float-left" loading="lazy">
             <br>
-            <a href="https://www.cdmon.com/" target="_blank"
-               rel="noopener noreferrer">
+            <a href="https://www.cdmon.com/" target="_blank" rel="noopener noreferrer">
                 <small class="float-left">Hosting by cdmon</small>
             </a>
         </div>
@@ -530,29 +542,11 @@
 
 <script defer>
     document.addEventListener('DOMContentLoaded', () => {
-        // Cache DOM elements
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
         const navbar = document.getElementById('navbar');
         const body = document.body;
-        const video = document.querySelector('video');
-
-        // Optimize image overlays
-        document.querySelectorAll('.relative').forEach(image => {
-            const overlay = image.querySelector('.overlay');
-            image.addEventListener('mouseenter', () => overlay.style.opacity = '1');
-            image.addEventListener('mouseleave', () => overlay.style.opacity = '0');
-        });
-
-        // Use event delegation for menu toggle
-        document.body.addEventListener('click', (event) => {
-            if (menuToggle.contains(event.target)) {
-                toggleMobileMenu();
-            } else if (menuClose.contains(event.target) || (mobileMenu.classList.contains('visible') && !mobileMenu.contains(event.target))) {
-                closeMobileMenu();
-            }
-        });
 
         // Toggle mobile menu visibility
         const toggleMobileMenu = () => {
@@ -571,20 +565,18 @@
             body.classList.remove('overflow-hidden');
         };
 
-        // Functions for video loading
-        const loadImages = () => {
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            });
-        };
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMobileMenu);
+        menuClose.addEventListener('click', closeMobileMenu);
 
-        if (video) {
-            video.addEventListener('canplaythrough', loadImages);
-            video.addEventListener('play', () => {
-                video.muted = false;
-            });
-        }
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (mobileMenu.classList.contains('visible') &&
+                !mobileMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
     });
 </script>
 

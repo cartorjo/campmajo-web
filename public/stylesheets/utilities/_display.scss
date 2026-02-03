@@ -1,0 +1,143 @@
+// ==========================================================================
+// DISPLAY UTILITIES
+// Display, visibility, and position classes
+// ==========================================================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Display
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.inline-grid { display: inline-grid; }
+.contents { display: contents; }
+.d-none { display: none; }
+
+// Responsive display
+.hidden-mobile {
+  @include m.respond-below('md') {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @include m.respond-to('md') {
+    display: none !important;
+  }
+}
+
+.sm-block {
+  @include m.respond-to('sm') { display: block; }
+}
+
+.sm-flex {
+  @include m.respond-to('sm') { display: flex; }
+}
+
+.sm-hidden {
+  @include m.respond-to('sm') { display: none; }
+}
+
+.md-block {
+  @include m.respond-to('md') { display: block; }
+}
+
+.md-flex {
+  @include m.respond-to('md') { display: flex; }
+}
+
+.md-hidden {
+  @include m.respond-to('md') { display: none; }
+}
+
+.lg-block {
+  @include m.respond-to('lg') { display: block; }
+}
+
+.lg-flex {
+  @include m.respond-to('lg') { display: flex; }
+}
+
+.lg-hidden {
+  @include m.respond-to('lg') { display: none; }
+}
+
+// Visibility
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-100 { opacity: 1; }
+
+// Position
+.static { position: static; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+.inset-0 { inset: 0; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+// Z-Index
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-dropdown { z-index: v.$z-index-dropdown; }
+.z-sticky { z-index: v.$z-index-sticky; }
+.z-fixed { z-index: v.$z-index-fixed; }
+.z-modal { z-index: v.$z-index-modal; }
+
+// Overflow
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-hidden { overflow-y: hidden; }
+
+// Object fit
+.object-cover { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.object-fill { object-fit: fill; }
+.object-center { object-position: center; }
+
+// Aspect ratio
+.aspect-auto { aspect-ratio: auto; }
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-portrait { aspect-ratio: 3 / 4; }
+
+// Cursor
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-grab { cursor: grab; }
+
+// Pointer events
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+// User select
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }

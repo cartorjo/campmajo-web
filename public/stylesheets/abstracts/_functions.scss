@@ -1,0 +1,183 @@
+// ==========================================================================
+// FUNCTIONS
+// Pure SCSS utility functions
+// ==========================================================================
+
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
+@use 'variables' as v;
+
+// --------------------------------------------------------------------------
+// Color Functions
+// --------------------------------------------------------------------------
+
+/// Lighten a color by mixing with white
+/// @param {Color} $clr - Base color
+/// @param {Number} $amount - Amount to lighten (0-100)
+/// @return {Color}
+@function tint($clr, $amount) {
+  @return color.mix(white, $clr, $amount);
+}
+
+/// Darken a color by mixing with black
+/// @param {Color} $clr - Base color
+/// @param {Number} $amount - Amount to darken (0-100)
+/// @return {Color}
+@function shade($clr, $amount) {
+  @return color.mix(black, $clr, $amount);
+}
+
+/// Create a transparent version of a color
+/// @param {Color} $clr - Base color
+/// @param {Number} $alpha - Alpha value (0-1)
+/// @return {Color}
+@function alpha($clr, $alpha) {
+  @return color.change($clr, $alpha: $alpha);
+}
+
+/// Get contrast color (black or white) for a given background
+/// @param {Color} $background - Background color
+/// @return {Color}
+@function contrast-color($background) {
+  $r: color.red($background);
+  $g: color.green($background);
+  $b: color.blue($background);
+  $luminance: math.div(0.299 * $r + 0.587 * $g + 0.114 * $b, 255);
+
+  @if $luminance > 0.5 {
+    @return v.$color-primary;
+  } @else {
+    @return v.$color-secondary;
+  }
+}
+
+/// Get color from colors map
+/// @param {String} $name - Color name
+/// @return {Color}
+@function color($name) {
+  @if map.has-key(v.$colors, $name) {
+    @return map.get(v.$colors, $name);
+  }
+  @if map.has-key(v.$grays, $name) {
+    @return map.get(v.$grays, $name);
+  }
+  @warn "Color '#{$name}' not found.";
+  @return null;
+}
+
+// --------------------------------------------------------------------------
+// Spacing Functions
+// --------------------------------------------------------------------------
+
+/// Convert pixel value to rem
+/// @param {Number} $px - Pixel value
+/// @param {Number} $base - Base font size (default: 16)
+/// @return {Number}
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/// Convert rem value to pixels
+/// @param {Number} $rem - Rem value
+/// @param {Number} $base - Base font size (default: 16)
+/// @return {Number}
+@function px($rem, $base: 16) {
+  @return math.div($rem, 1rem) * $base * 1px;
+}
+
+/// Get spacing value from map
+/// @param {String|Number} $key - Spacing key
+/// @return {Number}
+@function space($key) {
+  @if map.has-key(v.$spacing, '#{$key}') {
+    @return map.get(v.$spacing, '#{$key}');
+  }
+  @warn "Spacing '#{$key}' not found.";
+  @return null;
+}
+
+// --------------------------------------------------------------------------
+// Typography Functions
+// --------------------------------------------------------------------------
+
+/// Get font size from map
+/// @param {String} $size - Size key
+/// @return {Number}
+@function font-size($size) {
+  @if map.has-key(v.$font-sizes, $size) {
+    @return map.get(v.$font-sizes, $size);
+  }
+  @warn "Font size '#{$size}' not found.";
+  @return null;
+}
+
+/// Get font weight from map
+/// @param {String} $weight - Weight key
+/// @return {Number}
+@function font-weight($weight) {
+  @if map.has-key(v.$font-weights, $weight) {
+    @return map.get(v.$font-weights, $weight);
+  }
+  @warn "Font weight '#{$weight}' not found.";
+  @return null;
+}
+
+// --------------------------------------------------------------------------
+// Layout Functions
+// --------------------------------------------------------------------------
+
+/// Calculate percentage for grid columns
+/// @param {Number} $cols - Number of columns
+/// @param {Number} $total - Total columns (default: 12)
+/// @return {Number}
+@function col-width($cols, $total: 12) {
+  @return math.percentage(math.div($cols, $total));
+}
+
+/// Get z-index from layers map
+/// @param {String} $layer - Layer name
+/// @param {Number} $offset - Optional offset
+/// @return {Number}
+@function z($layer, $offset: 0) {
+  @if map.has-key(v.$z-layers, $layer) {
+    @return map.get(v.$z-layers, $layer) + $offset;
+  }
+  @warn "Z-layer '#{$layer}' not found.";
+  @return $offset;
+}
+
+/// Get breakpoint value
+/// @param {String} $name - Breakpoint name
+/// @return {Number}
+@function bp($name) {
+  @if map.has-key(v.$breakpoints, $name) {
+    @return map.get(v.$breakpoints, $name);
+  }
+  @warn "Breakpoint '#{$name}' not found.";
+  @return null;
+}
+
+/// Get border radius from map
+/// @param {String} $size - Radius size
+/// @return {Number}
+@function radius($size) {
+  @if map.has-key(v.$radii, $size) {
+    @return map.get(v.$radii, $size);
+  }
+  @warn "Radius '#{$size}' not found.";
+  @return null;
+}
+
+/// Get shadow from map
+/// @param {String} $size - Shadow size
+/// @return {List}
+@function shadow($size) {
+  @if map.has-key(v.$shadows, $size) {
+    @return map.get(v.$shadows, $size);
+  }
+  @warn "Shadow '#{$size}' not found.";
+  @return null;
+}
